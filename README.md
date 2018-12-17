@@ -21,7 +21,11 @@ From my standpoint it look like Camunda as company and Camunda BPM have some str
 - Current offer fullfills standards of OMG namely BPMN, DMN & CMMN
 - Event based microservices use cases are covered by Camunda BPM (mature) and soon performance optimized witb Zeebe (bleeding edge)
 
-## BPM feature set
+## BPM features
+
+Motivation of using Process Automation lies on search for excellency in long run - making algorithms of company easy to reason and
+fast to change - or easier programming model - to prevent hidden monolith, i.e. temporary and physically coupled systems which need
+to be deployed and operated as whole.
 
 Bpm toolset provides typically
 - modeling tools
@@ -40,7 +44,20 @@ Most sophisticated tools are using standard based process notation (BPMN) plus r
 
 https://www.slideshare.net/camunda/camundacon-2018-the-reemergence-of-workflow-automation-keynote-camunda
 
-# BPM use cases
+## BPM enables continuous improvement
+
+It is seldom that systems doesn't change, and thus it's valuable to build them easily adaptable.
+
+There's theory: making process easy to understand and change makes it possible to measure and improve.
+
+!["pwc"](pics/case-study-camunda-bpm-in-pwc-project-11-638.jpg "bpm as continuous development model")
+
+https://www.slideshare.net/camunda/case-study-camunda-bpm-in-pwc-project
+
+This might seem business jargon, not only because it comes from PWC, but as collaboration is hard it's really valuable if IT and
+business units can use same model as single truth.
+
+# BPM single vendor suite or best of breed?
 
 There is clear distinction of BPM use cases to
 - centrally managed, monolithic, process and information hubs for enterprises
@@ -50,29 +67,27 @@ Monolithic single vendor suites were traditionally thought as standardisation an
 
 Application and solution level point solutions can be called as api gateways, bpm tools, eai tools, enterprise service bus, etc. and they are most propably provided as part of IT operations or software development, and could aimed to modernise enterprise.
 
-Motivation of using Process Automation lies on search for excellency in long run - making algorithms of company easy to reason and
-fast to change - or easier programming model - to prevent hidden monolith, i.e. temporary and physically coupled systems which need
-to be deployed and operated as whole.
-
-## BPM single vendor suite or best of breed?
-
-Beware to use single vendor suite ment for complex enterprise intergration task to "simple" solution embedded application integration use cases. Opposite is definitely also true: if you need lot of out of box connectors for ERM, CRM or .. solutions then low level engine alone might not really solve challenge you have.
+Beware to use single vendor suite targeted for complex enterprise intergration task to "simple" solution embedded application integration use cases. Opposite is definitely also true: if you need lot of out of box connectors for ERM, CRM or .. solutions then low level engine alone might not really solve challenge you have.
 
 Example: Users of Oracle SOA suite are on "in single vendor we believe" category. Don't try it without good reason. 
 
 Example 2: Camunda BPM users are on "clean fast forward engine is all we need" category. It tries to do on thing well. Just try it.
 
-## BPM enables continuous improvement
+# BPM use cases
 
-It is seldom that systems doesn't change, and thus it's valuable to build them easily adaptable.
+Process orchestration use case can be most common motivation to invest in BPM engine.
+Using BPM and BPMN / DMN promotes collaboration and visibility, and opens up possibilities to develop processes in whole company
+level (no silos here).
 
-There's theory: making process easy to understand and change makes it possible to measure and improve.
+!["gs1"](richard-tarling-managing-director-and-randall-graebner-senior-engineer-from-goldman-sachs-camunda-day-nyc-2018-7-1024.jpg "bpm as model driven development")
 
-!["pwc"](pics/case-study-camunda-bpm-in-pwc-project-11-638.jpg "pwc")
+Still, there is not single use case for BPM, but several of them
+- https://blog.bernd-ruecker.com/5-workflow-automation-use-cases-you-might-not-have-thought-of-9bdeb0e71996
 
-https://www.slideshare.net/camunda/case-study-camunda-bpm-in-pwc-project
+Microservices that have database per service are good candidates for external workflow control when data needs to be consistent
 
-This might seem business jargon, not only because it comes from PWC, but as collaboration is hard it's really valuable if it and
-business can use same model as single thruth.
+Saga is pattern which can be implemented using BPM
+- https://microservices.io/patterns/data/saga.html
 
-
+These technical use cases are making eventually consistent data processing using distributed transactions and microservices reality.
+- https://blog.bernd-ruecker.com/saga-how-to-implement-complex-business-transactions-without-two-phase-commit-e00aa41a1b1b
