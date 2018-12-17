@@ -3,11 +3,11 @@ bpm for programmers?
 
 ## Camunda
 
-Camunda BPM is just an example of BPMN based workflow automation toolset (or process automation suite, whatever). There's other toolsets also, especially single vendor driver offerings, no question, but Camunda seems to be more than just ok for my needs.
+Camunda BPM is just an example of BPMN based workflow automation toolset (or process automation suite, whatever). There's other toolsets also, especially single vendor driven offerings, no question, but Camunda seems to be more than just ok for my needs.
 
 Camunda BPM can be used as standalone installation or embedded within host applications. When used as embedded workflow engine Camunda BPM offers native Java API's.
 
-Camunda BPM was forked 2013 from open source library Activiti https://www.activiti.org/. 
+Camunda BPM was forked 2013 from open source library Activiti https://www.activiti.org/. Wikipedia knows the rest https://en.wikipedia.org/wiki/Activiti_(software)
 
 Activiti is commercially available as part of Alfresco suite https://www.alfresco.com/platform/process-services-bpm
 
