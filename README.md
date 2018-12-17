@@ -185,7 +185,7 @@ seems important.
 
 !["br4"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-42-1024.jpg "Bpm and Events")
 
-Some call this model of process execution "choreography" (funtionality emerges from interactions) versus "orchestration" (single party
+Some call this model of process execution "choreography" (functionality emerges from interactions) versus "orchestration" (single party
 is leading interactions and dictating possible functionality)
 
 ## BPM within Rest based architecture
@@ -319,9 +319,31 @@ Ask yourself why this is done? Simple: Legacy is expensive, proxies are cheap.
 
 Legacy system is just an endpoint to BPM - it may be replaced later with real integration if and when possible.
 
-RPA is strategy to buy bit of time, not really a suitable way to modernise systems.
-
 !["rpa2"](pics/jakob-freund-camunda-for-it-executives-camunda-days-24-1024.jpg)
+
+RPA is strategy to buy bit of time, not really a suitable way to modernize existing systems.
+
+## BPM as part of "Layered Microservices Architecture"
+
+It looks like oxymoron, and probably is: chain of coupled services are depicted as layers.
+
+But still, if we follow thought of layering it's clear that BPM enabled services would be part of internal layer.
+
+!["rpa2"](pics/layered-microservics-edge.png)
+
+Or we could see them as Composite/Integration services
+
+!["rpa2"](pics/layered-microservices-composite.png)
+
+Still to note: layers should be organized by business purpose, which means that composite/integration => core/atomic services seem to
+be ok idea as long as composite/integration is providing additional value, but edge => internal => external might result wrong granularity
+and thus create problematic division of work.
+
+- It's too easy for technology teams to be assigned by layer, so delivering any valuable business change requires slow and
+  expensive coordination between multiple teams. We caution against the effects of this layering and recommend arranging
+  services and teams primarily according to business capabilit
+  
+  https://www.thoughtworks.com/radar/techniques/layered-microservices-architecture
 
 ## References
 
