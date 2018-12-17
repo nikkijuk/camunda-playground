@@ -3,23 +3,35 @@ bpm for programmers?
 
 ## Camunda
 
-Camunda BPM is just an example of BPMN based workflow automation toolset (or process automation suite, whatever). There's other toolsets also, especially single vendor driven offerings, no question, but Camunda seems to be more than just ok for my needs.
+Camunda BPM is just an example of BPMN based workflow automation toolset (or process automation suite, whatever). There's other toolsets also, especially single vendor driven offerings, but Camunda seems to be more than just ok for my needs.
 
 Camunda BPM can be used as standalone installation or embedded within host applications. When used as embedded workflow engine Camunda BPM offers native Java API's.
 
-Camunda BPM was forked 2013 from open source library Activiti https://www.activiti.org/. Wikipedia knows the rest https://en.wikipedia.org/wiki/Activiti_(software)
+Camunda BPM was forked 2013 from open source library Activiti https://www.activiti.org/. Activiti is commercially available as part of Alfresco suite https://www.alfresco.com/platform/process-services-bpm. 
 
-Activiti is commercially available as part of Alfresco suite https://www.alfresco.com/platform/process-services-bpm
+Camunda BPM is offered as Open Source (Apache 2.0 lisence), commercial version adds monitoring and optimization features https://camunda.com/enterprise/.
 
-Camunda BPM is offered as Open Source (apache license), commercial version adds monitoring and optimization features https://camunda.com/enterprise/
-
-Camunda as company has recently (12/2018) raised 25 million euros of venture capital https://blog.camunda.com/post/2018/12/camunda-raises-series-a/
+Camunda as company has recently (12/2018) raised 25 million euros of venture capital https://blog.camunda.com/post/2018/12/camunda-raises-series-a/.
 
 Camunda develops also new lightweight Workflow engine for microservices https://zeebe.io/
 
 From my standpoint it look like Camunda as company and Camunda BPM have some strong points
 
-- Rooted on experiences from consuling service
+- Rooted on experiences from consuling service, codebase already tested
 - Current offer fullfills standards of OMG namely BPMN, DMN & CMMN
 - Event based microservices use cases are covered by Camunda BPM (mature) and soon performance optimized witb Zeebe (bleeding edge)
 
+## BPM feature set
+
+Bpm toolset provides typically
+- modeling tools
+- tasklist for user facing actions (manual action: yes/no questions, data entry, etc.)
+- toolkits for custom application (libraries for building clients, querying states of processes, errors, etc.)
+- analytics and problem solving tools (can be called cockpit or dashboard or whatever, shows state of single process or overall
+system)
+- admin tools (reports, usage rights, etc.)
+- engine for running processes (routing, transforming, calling endpoints, starting compensation, returning values, ..)
+- rule engine (executing rules, simulating rule changes on used data, etc.)
+- repository storing process state
+- often highest value of bpm suites offer comes from production ready adapters for protocols (hl7, hipaa, .. etc) and systems (sap,
+siebel, salesforce, ..)
