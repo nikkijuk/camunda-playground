@@ -171,13 +171,31 @@ When BPM engine is local to logic, it's just an implementation detail, but still
 
 !["talanx3"](pics/camundacon-2018-our-journey-to-the-digital-world-of-insurance-talanx-51-1024.jpg "BPM inside microservice")
 
-When taking bird view it looks like this - there's several microservices, organized to layers of microservices (process microservices, atomic microservices), each has their own bpm engine, and their process flow can be
-analyzed using bpm engines admin ui (cockpit). 
+When taking bird view it looks like this. There's several microservices, organized to layers (process microservices, atomic microservices), each microservice with complex interaction requirements has their own bpm engine, and process flow of microservices which use bpm can be
+analyzed using bpm engines administration and optimization tools . 
 
+## BPM architecture options
 
+### BPM within Event based architecture
 
+In event based architecture all systems are decoupled and exchanges messages thru share bus.
 
+Every interaction in using async Events, and apps just tell something has happened. None controls here anything, everyone listens and reacts if event
+seems important.
 
+!["br3"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-42-1024.jpg "Bpm and Events")
+
+Some call this model of process execution "choreography" (funtionality emerges from interactions) versus "orchestration" (single party
+is leading interactions and dictating possible functionality)
+
+## BPM within Rest based architecture
+
+In REST (or gRPC or ..) architecture services need to know endpoints which take part to process in addition to message payload (json), but bus is away,
+which can make deployment easier at least in small use cases
+
+!["br3"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-43-1024.jpg "Bpm and Rest")
+
+Note that here order is controlling interactions so we have here "orchestration" as process model.
 
 
 
