@@ -11,7 +11,7 @@ Camunda BPM was forked 2013 from open source library Activiti https://www.activi
 
 Camunda BPM is offered as Open Source (Apache 2.0 lisence), commercial version adds monitoring and optimization features https://camunda.com/enterprise/. Camunda can be seen as "best of breed" open source stack.
 
-Camunda as company has recently (12/2018) raised 25 million euros of venture capital https://blog.camunda.com/post/2018/12/camunda-raises-series-a/.
+Camunda as company has recently (12/2018) raised 25 million euros of venture capital https://blog.camunda.com/post/2018/12/camunda-raises-series-a/. They are growing, just as last year https://blog.camunda.com/post/2017/12/camunda-year-in-review/.
 
 Camunda develops also new lightweight Workflow engine for microservices https://zeebe.io/
 
@@ -38,6 +38,8 @@ siebel, salesforce, ..)
 
 Most sophisticated tools are using standard based process notation (BPMN) plus rule (DMN) and case (CMMN) descriptions. 
 
+https://www.slideshare.net/camunda/camundacon-2018-the-reemergence-of-workflow-automation-keynote-camunda
+
 # BPM use cases
 
 There is clear distinction of BPM use cases to
@@ -59,5 +61,16 @@ Beware to use single vendor suite ment for complex enterprise intergration task 
 Example: Users of Oracle SOA suite are on "in single vendor we believe" category. Don't try it without good reason. 
 
 Example 2: Camunda BPM users are on "clean fast forward engine is all we need" category. It tries to do on thing well. Just try it.
+
+## BPM enables continuous improvement
+
+It is seldom that systems doesn't change, and thus it's valuable to build them easily adaptable.
+
+There's theory: making process easy to understand and change makes it possible to measure and improve.
+
+https://www.slideshare.net/camunda/case-study-camunda-bpm-in-pwc-project
+
+This might seem business jargon, not only because it comes from PWC, but as collaboration is hard it's really valuable if it and
+business can use same model as single thruth.
 
 
