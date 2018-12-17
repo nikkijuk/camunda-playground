@@ -73,21 +73,20 @@ Example: Users of Oracle SOA suite are on "in single vendor we believe" category
 
 Example 2: Camunda BPM users are on "clean fast forward engine is all we need" category. It tries to do on thing well. Just try it.
 
+Now when I have warned of big bad boys I forgot them. Vendor lock in is bad, monolithic single vendor stacks have their limits on flexibility and value. And they aren't really for programmers.
+
 # BPM use cases
 
-Process orchestration use case can be most common motivation to invest in BPM engine.
-Using BPM and BPMN / DMN promotes collaboration and visibility, and opens up possibilities to develop processes in whole company
+Process orchestration use case can be most common motivation to invest in BPM engine. Using BPM and BPMN / DMN promotes collaboration and visibility, and opens up possibilities to develop processes in whole company
 level (no silos here).
 
 !["gs1"](pics/richard-tarling-managing-director-and-randall-graebner-senior-engineer-from-goldman-sachs-camunda-day-nyc-2018-7-1024.jpg "bpm as model driven development")
 
-Still, there is not single use case for BPM, but several of them
-- https://blog.bernd-ruecker.com/5-workflow-automation-use-cases-you-might-not-have-thought-of-9bdeb0e71996
+Still, there is not single use case for BPM, but several of them https://blog.bernd-ruecker.com/5-workflow-automation-use-cases-you-might-not-have-thought-of-9bdeb0e71996
 
 Microservices that have database per service are good candidates for external workflow control when data needs to be consistent
 
-Saga is pattern which can be implemented using BPM
-- https://microservices.io/patterns/data/saga.html
+Saga is pattern which can be implemented using BPM https://microservices.io/patterns/data/saga.html
 
-These technical use cases are making eventually consistent data processing using distributed transactions and microservices reality.
-- https://blog.bernd-ruecker.com/saga-how-to-implement-complex-business-transactions-without-two-phase-commit-e00aa41a1b1b
+These technical use cases are making eventually consistent data processing using distributed transactions and microservices reality. https://blog.bernd-ruecker.com/saga-how-to-implement-complex-business-transactions-without-two-phase-commit-e00aa41a1b1b
+
