@@ -329,11 +329,11 @@ It looks like oxymoron, and probably is: chain of coupled services are depicted 
 
 But still, if we follow thought of layering it's clear that BPM enabled services would be part of internal layer.
 
-!["rpa2"](pics/layered-microservics-edge.png)
+!["layered1"](pics/layered-microservices-edge.png)
 
 Or we could see them as Composite/Integration services
 
-!["rpa2"](pics/layered-microservices-composite.png)
+!["layered2"](pics/layered-microservices-composite.png)
 
 Still to note: layers should be organized by business purpose, which means that composite/integration => core/atomic services seem to
 be ok idea as long as composite/integration is providing additional value, but edge => internal => external might result wrong granularity
