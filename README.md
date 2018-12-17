@@ -245,8 +245,8 @@ If service is called using asynchronous rest / http call result can be
 In Failure cases 1-3 client can and need to send retry request, since it doesn't have any idea what happened at server end.
 
 In server situation is different when client sends retry:
--In Failure 1 server gets request first time
--in Failure 2 server might have partial processing done (if transaction is not rolled back properly state might be dirty, also: service
+- In Failure 1 server gets request first time
+- in Failure 2 server might have partial processing done (if transaction is not rolled back properly state might be dirty, also: service
 might be down or unstable due to problems which prevented processing before)
 - In Failure 3 everything is done - so, here idempotent operation is ok, otherwise everything is "doppel gemoppelt"
 
