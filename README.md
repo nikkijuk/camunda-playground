@@ -277,13 +277,59 @@ there's supervisor and escalation methods like retry and compensation in place a
 path of execution to be chosen (for example initial response notes exceptional situation and callback is bringing result later when
 system is stable again)
 
-References
+## Extension to Rest communication
+
+With BPM engine it's possible to do some "fancy" stuff - for example decide at service if processing is sync or async - process as client
+adapts to decisions of service.
+
+Service is here using BPM to implementation multi part processing
+- Return result if it's ready FAST (sync)
+- Return ack if result takes time (async)
+- Return result to waiting process when it's ready
+
+Client can be other process in other process engine.
+
+!["cc2"](pics/paul-lungu-microservices-integration-challenges-and-solutions-camunda-day-new-york-city-8-638.jpg)
+
+I haven't yet really understood if this flexibility has value.. 
+
+## Mapping process data to services
+
+There's several strategies to map process data to systems which implement process.
+
+Easiest is to have canonical data model for enterprise - this means: no mapping, or mapping in systems implementation
+
+https://dzone.com/articles/still-struggling-between-platforms-and-microservic
+
+One way of this is to use open api, possibly so that BPMN models and endpoints are defined by same people
+
+https://www.openapis.org/
+
+If there's no canonical data model mapping is needed
+
+!["mapping1"](pics/20180821-camunda-meetup-berlinrobert-breske-12-1024.jpg)
+
+# BPM loves Robots :D
+
+Robotic Process Automation is way to open legacy systems using proxies. 
+
+Ask yourself why this is done? Simple: Legacy is expensive, proxies are cheap.
+
+!["rpa1"](pics/jakob-freund-camunda-for-it-executives-camunda-days-21-638.jpg)
+
+Legacy system is just an endpoint to BPM - it may be replaced later with real integration if and when possible.
+
+RPA is strategy to buy bit of time, not really a suitable way to modernise systems.
+
+!["rpa2"](pics/jakob-freund-camunda-for-it-executives-camunda-days-24-1024.jpg)
+
+## References
 
 https://www.slideshare.net/Lightbend/the-future-of-services-building-asynchronous-resilient-and-elastic-systems
 
 https://www.slideshare.net/ufried/resilient-functional-service-design
 
-
+https://www.slideshare.net/camunda/20180821-camunda-meetup-berlinrobert-breske
 
 https://blog.bernd-ruecker.com/use-camunda-without-touching-java-and-get-an-easy-to-use-rest-based-orchestration-and-workflow-7bdf25ac198e 
 
