@@ -146,7 +146,7 @@ Simply put: complexity needs to go somewhere else. To global flow of services, w
 
 In this model process orchestration service is running as independent installation without possibly any customization.
 
-!["br2"](pics/camunda-blackbox.png "Camunda as black box")
+!["br3"](pics/camunda-blackbox.png "Camunda as black box")
 
 There's no restrictions on communication models, except that all process calls are distributed
 - Messaging using events / topics / message queues - everything completely async
@@ -183,7 +183,7 @@ In event based architecture all systems are decoupled and exchanges messages thr
 Every interaction in using async Events, and apps just tell something has happened. None controls here anything, everyone listens and reacts if event
 seems important.
 
-!["br3"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-42-1024.jpg "Bpm and Events")
+!["br4"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-42-1024.jpg "Bpm and Events")
 
 Some call this model of process execution "choreography" (funtionality emerges from interactions) versus "orchestration" (single party
 is leading interactions and dictating possible functionality)
@@ -193,18 +193,97 @@ is leading interactions and dictating possible functionality)
 In REST (or gRPC or ..) architecture services need to know endpoints which take part to process in addition to message payload (json), but bus is away,
 which can make deployment easier at least in small use cases
 
-!["br3"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-43-1024.jpg "Bpm and Rest")
+!["br5"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-43-1024.jpg "Bpm and Rest")
 
 Note that here order is controlling interactions so we have here "orchestration" as process model.
 
+## Distributed computing 
 
+Taking as first principle of design that distributed system functions like non distributed is often connected to Fallacies of distributed
+computing https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
 
+Principles of chaos engineering states http://principlesofchaos.org/
+- Even when all of the individual services in a distributed system are functioning properly, the interactions between those services
+  can cause unpredictable outcomes. Unpredictable outcomes, compounded by rare but disruptive real-world events that affect
+  production environments, make these distributed systems inherently chaotic.
+  
+Netfix fights against this by trying to fail fast and always only partially, and tests system of systems using chaos monkey, which tries to
+beak everything https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey
 
+Nextfilx has simple motivation for breaking things ..
+- Failures happen, and they inevitably happen when least desired. If your application can't tolerate a system failure would you
+  rather find out by being paged at 3am or after you are in the office having already had your morning coffee?
+  
+I'd prefer seeing all communication and systems as inreliable, and failure as normal, but it's evidently simpler to trust on every
+component and not take existing complexity as "my problem" or "normal complexity"
 
+Some vendors see that whole current service model - or even software architectures we use as de facto way - are obsolete
 
+!["lb1"](pics/the-future-of-services-building-asynchronous-resilient-and-elastic-systems-7-1024.jpg)
 
+But it's clear that this change adds complexity somewhere while it at the same time tries to reduce it somewhere else
+
+!["lb2"](pics/the-future-of-services-building-asynchronous-resilient-and-elastic-systems-16-1024.jpg)
+
+If efficiency is important everything possible would need to be async! Rest is heavy ...
+
+!["lb3"](pics/the-future-of-services-building-asynchronous-resilient-and-elastic-systems-12-1024.jpg)
+
+## Errors in Rest communication
+
+Rest communication is de-facto easiest way to integrate services (connections, http handling, json handling, security tokens, etc..)
+
+Long response times are creating deadlocks and blocking resources, which might slow down overall system even if problem is only
+affecting single component.
+
+If service is called using asynchronous rest / http call result can be
+- Success: Service replied and client knows state of server (might be slow, but response comes eventually)
+- Failure 1: Service never got request (no state change at service)
+- Failure 2: Service failed with no reply (state of service should be unchanged)
+- Failure 3: Client never got reply (state of service changed)
+
+In Failure cases 1-3 client can and need to send retry request, since it doesn't have any idea what happened at server end.
+
+In server situation is different when client sends retry:
+-In Failure 1 server gets request first time
+-in Failure 2 server might have partial processing done (if transaction is not rolled back properly state might be dirty, also: service
+might be down or unstable due to problems which prevented processing before)
+- In Failure 3 everything is done - so, here idempotent operation is ok, otherwise everything is "doppel gemoppelt"
+
+!["rest1"](pics/paul-lungu-microservices-integration-challenges-and-solutions-camunda-day-new-york-city-6-1024.jpg)
+
+Notice: Idempotent service needs some extra work from implementation. It should also be clear where it is needed and where not.
+
+- Es ist unbedingt erforderlich, dass sich Services idempotent verhalten, wenn dies angebracht ist. Und genau das muss
+  individuell für jeden Service entschieden werden. Soll ein Service idempotent sein, so muss er diese Idempotenz selbst
+  implementieren und gegebenenfalls vor der Verarbeitung selbst prüfen, ob die diese bereits durchgeführt wurde.
+  
+  https://blog.holisticon.de/2012/11/immer-das-gleiche-mit-der-idempotenz/
+
+## Communications design
+
+Different communication models results result different software structure
+- R/R being tighter coupled, but very clearly structured
+- Event-driven components having low coupling, but harder to debug, operate and reason
+
+!["cc1"](pics/resilient-functional-service-design-56-1024.jpg)
+
+There needs to be basic understanding of new model if team want to use event based communication, since it needs lot of learning
+
+!["cc2"](pics/resilient-functional-service-design-57-1024.jpg)
+
+It's important to note that architecturally using BPM can be somewhere in between these lines: communication can still be R/R, but
+there's supervisor and escalation methods like retry and compensation in place and failure of single component can result alternative
+path of execution to be chosen (for example initial response notes exceptional situation and callback is bringing result later when
+system is stable again)
 
 References
+
+https://www.slideshare.net/Lightbend/the-future-of-services-building-asynchronous-resilient-and-elastic-systems
+
+https://www.slideshare.net/ufried/resilient-functional-service-design
+
+
 
 https://blog.bernd-ruecker.com/use-camunda-without-touching-java-and-get-an-easy-to-use-rest-based-orchestration-and-workflow-7bdf25ac198e 
 
