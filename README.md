@@ -79,7 +79,7 @@ Process orchestration use case can be most common motivation to invest in BPM en
 Using BPM and BPMN / DMN promotes collaboration and visibility, and opens up possibilities to develop processes in whole company
 level (no silos here).
 
-!["gs1"](richard-tarling-managing-director-and-randall-graebner-senior-engineer-from-goldman-sachs-camunda-day-nyc-2018-7-1024.jpg "bpm as model driven development")
+!["gs1"](pics/richard-tarling-managing-director-and-randall-graebner-senior-engineer-from-goldman-sachs-camunda-day-nyc-2018-7-1024.jpg "bpm as model driven development")
 
 Still, there is not single use case for BPM, but several of them
 - https://blog.bernd-ruecker.com/5-workflow-automation-use-cases-you-might-not-have-thought-of-9bdeb0e71996
