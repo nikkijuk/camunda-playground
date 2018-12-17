@@ -9,7 +9,7 @@ Camunda BPM can be used as standalone installation or embedded within host appli
 
 Camunda BPM was forked 2013 from open source library Activiti https://www.activiti.org/. Activiti is commercially available as part of Alfresco suite https://www.alfresco.com/platform/process-services-bpm. 
 
-Camunda BPM is offered as Open Source (Apache 2.0 lisence), commercial version adds monitoring and optimization features https://camunda.com/enterprise/.
+Camunda BPM is offered as Open Source (Apache 2.0 lisence), commercial version adds monitoring and optimization features https://camunda.com/enterprise/. Camunda can be seen as "best of breed" open source stack.
 
 Camunda as company has recently (12/2018) raised 25 million euros of venture capital https://blog.camunda.com/post/2018/12/camunda-raises-series-a/.
 
@@ -35,3 +35,29 @@ system)
 - repository storing process state
 - often highest value of bpm suites offer comes from production ready adapters for protocols (hl7, hipaa, .. etc) and systems (sap,
 siebel, salesforce, ..)
+
+Most sophisticated tools are using standard based process notation (BPMN) plus rule (DMN) and case (CMMN) descriptions. 
+
+# BPM use cases
+
+There is clear distinction of BPM use cases to
+- centrally managed, monolithic, process and information hubs for enterprises
+- application or solution level workflow and process integration for routing and transformation 
+
+Monolithic single vendor suites were traditionally thought as standardisation and cost saving tools. So: here we aim for efficiency.
+
+Application and solution level point solutions can be called as api gateways, bpm tools, eai tools, enterprise service bus, etc. and they are most propably provided as part of IT operations or software development, and could aimed to modernise enterprise.
+
+Motivation of using Process Automation lies on search for excellency in long run - making algorithms of company easy to reason and
+fast to change - or easier programming model - to prevent hidden monolith, i.e. temporary and physically coupled systems which need
+to be deployed and operated as whole.
+
+## BPM single vendor suite or best of breed?
+
+Beware to use single vendor suite ment for complex enterprise intergration task to "simple" solution embedded application integration use cases. Opposite is definitely also true: if you need lot of out of box connectors for ERM, CRM or .. solutions then low level engine alone might not really solve challenge you have.
+
+Example: Users of Oracle SOA suite are on "in single vendor we believe" category. Don't try it without good reason. 
+
+Example 2: Camunda BPM users are on "clean fast forward engine is all we need" category. It tries to do on thing well. Just try it.
+
+
