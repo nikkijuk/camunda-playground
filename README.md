@@ -113,7 +113,7 @@ There's also possibility to generate native java from DMN rules, which makes exe
 Managing rules is evidently good idea if there's thousands of them. At that point it might even be mandatory formalize rules and save
 them to repository to fight against accidental complexity.
 
-## BPM engine as controlling components
+## BPM engine as controlling component
 
 Balance between independent modules and central control of processes might be hard to find.
 
@@ -139,4 +139,54 @@ complexity.
 Simply put: complexity needs to go somewhere else. To global flow of services, which, in it's best is controlled.
 
 !["br2"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-48-1024.jpg "BPM and microservices")
+
+## BPM deployment options
+
+### BPM Engine as black box
+
+In this model process orchestration service is running as independent installation without possibly any customization.
+
+!["br2"](pics/camunda-blackbox.png "Camunda as black box")
+
+There's no restrictions on communication models, except that all process calls are distributed
+- Messaging using events / topics / message queues - everything completely async
+- Messaging using rest, some calls return results in request / response, some use callbacks
+- Mixed: events, rest - whatever
+
+If integration service is inside DDD Bounded context it's just one service, doesn't matter that it doesn't have any JAVA inside.
+
+This is centralized model of running processes, but it works and is easy to implement.
+
+### BPM Engine as white box
+
+When BPM engine is seen as white box you have every feature of black box in use, but also
+- can embded BPM engine to your app
+- can start processes as you wish
+- endpoints can be java classes (inprocess calls)
+
+https://blog.bernd-ruecker.com/architecture-options-to-run-a-workflow-engine-6c2419902d91
+
+When BPM engine is local to logic, it's just an implementation detail, but still has admin tools present and process state is in database
+(might be in memory db, but doesn't need to be)
+
+!["talanx3"](pics/camundacon-2018-our-journey-to-the-digital-world-of-insurance-talanx-51-1024.jpg "BPM inside microservice")
+
+When taking bird view it looks like this - there's several microservices, organized to layers of microservices (process microservices, atomic microservices), each has their own bpm engine, and their process flow can be
+analyzed using bpm engines admin ui (cockpit). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+References
+
+https://blog.bernd-ruecker.com/use-camunda-without-touching-java-and-get-an-easy-to-use-rest-based-orchestration-and-workflow-7bdf25ac198e 
 
