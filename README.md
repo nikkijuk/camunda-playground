@@ -113,3 +113,30 @@ There's also possibility to generate native java from DMN rules, which makes exe
 Managing rules is evidently good idea if there's thousands of them. At that point it might even be mandatory formalize rules and save
 them to repository to fight against accidental complexity.
 
+## BPM engine as controlling components
+
+Balance between independent modules and central control of processes might be hard to find.
+
+To me central controlling component enables services to be small and independent as there's controller function above them.
+
+BPM engine does controlling by
+- orchestrating flow of service calls
+- correlating messages / events to process
+- reacting on errors (service call fails)
+- reacting on timeouts (service call result missing)
+- enabling compensation (transactionality, replaces 2pc)
+
+!["br1"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-21-1024.jpg "BPM as balancing act")
+
+If plan is to use microservices, i.e single purpose lightweight services, coupling of them together needs to happen somewhere else.
+- Microservices shouldn't know each other
+- Each call to microservices should be idempotent (always leave service to same state with same parameters)
+- Microservice should support compensation (return to previous state)
+
+It's very hard to see what happens at global level, as microservices are very small and do limited amount of work and thus have limited
+complexity.
+
+Simply put: complexity needs to go somewhere else. To global flow of services, which, in it's best is controlled.
+
+!["br2"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-48-1024.jpg "BPM and microservices")
+
