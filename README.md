@@ -3,7 +3,7 @@ bpm for programmers?
 
 ## Camunda
 
-Camunda BPM is good example of BPMN based workflow automation toolset (or process automation suite, whatever). There's other toolsets also, especially single vendor driven offerings, but Camunda seems to be more than just ok for my needs.
+Camunda BPM is good example of BPMN based workflow automation toolset. There's other toolsets also, especially single vendor driven offerings, but Camunda seems to be more than just ok for java based integration projects.
 
 Camunda BPM can be used as standalone installation or embedded within host applications. When used as embedded workflow engine Camunda BPM offers native Java API's.
 
