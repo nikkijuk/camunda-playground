@@ -57,7 +57,7 @@ https://www.slideshare.net/camunda/case-study-camunda-bpm-in-pwc-project
 This might seem business jargon, not only because it comes from PWC, but as collaboration is hard it's really valuable if IT and
 business units can use same model as single truth.
 
-# BPM single vendor suite or best of breed?
+## BPM single vendor suite or best of breed?
 
 There is clear distinction of BPM use cases to
 - centrally managed, monolithic, process and information hubs for enterprises
@@ -75,7 +75,7 @@ Example 2: Camunda BPM users are on "clean fast forward engine is all we need" c
 
 Now when I have warned of big bad boys I forgot them. Vendor lock in is bad, monolithic single vendor stacks have their limits on flexibility and value. And they aren't really for programmers.
 
-# BPM use cases
+## BPM use cases
 
 Process orchestration use case can be most common motivation to invest in BPM engine. Using BPM and BPMN / DMN promotes collaboration and visibility, and opens up possibilities to develop processes in whole company
 level (no silos here).
@@ -89,4 +89,27 @@ Microservices that have database per service are good candidates for external wo
 Saga is pattern which can be implemented using BPM https://microservices.io/patterns/data/saga.html
 
 These technical use cases are making eventually consistent data processing using distributed transactions and microservices reality. https://blog.bernd-ruecker.com/saga-how-to-implement-complex-business-transactions-without-two-phase-commit-e00aa41a1b1b
+
+### BPMN as programming model
+
+!["talanx1"](pics/camundacon-2018-our-journey-to-the-digital-world-of-insurance-talanx-26-1024.jpg "bpmn as programming model")
+
+Process is described using BPMN. http://mlwiki.org/index.php/BPMN
+
+Process flow is executed using workflow engine.
+
+Service Endpoint can be http (rest) or java or other jvm language (in case bpm engine supports this)
+
+### DMN as programming model
+
+!["talanx2"](pics/camundacon-2018-our-journey-to-the-digital-world-of-insurance-talanx-27-1024.jpg "dmn as programming model")
+
+DMN (Decision Modeling Notation) can be used to describe business rules
+
+There's also possibility to generate native java from DMN rules, which makes execution of rules fast and independent of Camunda.
+
+!["gs2"](pics/richard-tarling-managing-director-and-randall-graebner-senior-engineer-from-goldman-sachs-camunda-day-nyc-2018-14-1024.jpg "perfornabt DMN execution")
+
+Managing rules is evidently good idea if there's thousands of them. At that point it might even be mandatory formalize rules and save
+them to repository to fight against accidental complexity.
 
