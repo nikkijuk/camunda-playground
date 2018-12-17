@@ -68,6 +68,8 @@ It is seldom that systems doesn't change, and thus it's valuable to build them e
 
 There's theory: making process easy to understand and change makes it possible to measure and improve.
 
+!["pwc"](pics/case-study-camunda-bpm-in-pwc-project-11-638.jpg "pwc")
+
 https://www.slideshare.net/camunda/case-study-camunda-bpm-in-pwc-project
 
 This might seem business jargon, not only because it comes from PWC, but as collaboration is hard it's really valuable if it and
