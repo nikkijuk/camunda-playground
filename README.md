@@ -1,10 +1,11 @@
 # camunda-playground
-bpm for programmers?
+
+Bpm for programmers? I have saved here my notes and thoughts to help fellow developers to reason if BPM could help them. My opinion: Absolutely maybe!
 
 ## Motivation 
 
-Motivation of using Process / Workflow Automation lies on search for excellency in long run (Strategic decision) - making algorithms of company easy to reason and
-fast to change - or easier programming model (Tactical decision) - to prevent hidden monolith, i.e. temporary and physically coupled systems which need
+Motivation of using Process / Workflow Automation lies on search for excellency in long run (Strategic decision, often done by Management) - making algorithms of company easy to reason and
+fast to change - or easier programming model (Tactical decision, often done by IT Department or Development Team) - to prevent hidden monolith, i.e. temporary and physically coupled systems which need
 to be deployed and operated as whole.
 
 !["Strategy1"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-49-1024.jpg)
