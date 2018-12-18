@@ -15,6 +15,8 @@ If BPM is seen as Strategic and not (only) Tactical tool journey using BPM might
 - Improve: Enhance and extend existing processes
 - Extend: Find new use cases, share experiences, connect processes together
 
+Most sophisticated BPM tools are using standard based process notation (BPMN) plus rule (DMN) and case (CMMN) descriptions. Not all engines are alike, but standars are expanding pool of experts which companies can use.
+
 ## Camunda
 
 Camunda BPM is good example of BPMN based workflow automation toolset. There's other toolsets also, especially single vendor driven offerings, but Camunda seems to be more than just ok for java based integration projects.
@@ -23,7 +25,7 @@ Camunda BPM can be used as standalone installation or embedded within host appli
 
 Camunda BPM was forked 2013 from open source library Activiti https://www.activiti.org/. Activiti is commercially available as part of Alfresco suite https://www.alfresco.com/platform/process-services-bpm. 
 
-Camunda BPM is offered as Open Source (Apache 2.0 lisence), commercial version adds monitoring and optimization features https://camunda.com/enterprise/. Camunda can be seen as "best of breed" open source stack.
+Camunda BPM is offered as Open Source (Apache 2.0 license), commercial version adds monitoring and optimization features https://camunda.com/enterprise/. Camunda can be seen as "best of breed" open source stack.
 
 Camunda as company has recently (12/2018) raised 25 million euros of venture capital https://blog.camunda.com/post/2018/12/camunda-raises-series-a/. They are growing, just as last year https://blog.camunda.com/post/2017/12/camunda-year-in-review/.
 
@@ -31,9 +33,9 @@ Camunda develops also new lightweight Workflow engine for microservices https://
 
 From my standpoint it look like Camunda as company and Camunda BPM have some strong points
 
-- Rooted on experiences from consuling service, codebase already tested
-- Current offer fullfills standards of OMG namely BPMN, DMN & CMMN
-- Event based microservices use cases are covered by Camunda BPM (mature) and soon performance optimized witb Zeebe (bleeding edge)
+- Rooted on experiences from consulting service, codebase already tested
+- Current offer fulfills standards of OMG, namely BPMN, DMN & CMMN
+- Event based microservices use cases are covered by Camunda BPM (mature) and soon performance optimized with Zeebe (bleeding edge)
 
 ## BPM features
 
@@ -50,9 +52,9 @@ system)
 - often highest value of bpm suites offer comes from production ready adapters for protocols (hl7, hipaa, .. etc) and systems (sap,
 siebel, salesforce, ..)
 
-Most sophisticated tools are using standard based process notation (BPMN) plus rule (DMN) and case (CMMN) descriptions. 
+Here's Camundas architecture as example
 
-https://www.slideshare.net/camunda/camundacon-2018-the-reemergence-of-workflow-automation-keynote-camunda
+!["architecture1"](pics/architecture-overview.png)
 
 ## BPM enables continuous improvement
 
@@ -365,3 +367,4 @@ https://www.slideshare.net/camunda/20180821-camunda-meetup-berlinrobert-breske
 
 https://blog.bernd-ruecker.com/use-camunda-without-touching-java-and-get-an-easy-to-use-rest-based-orchestration-and-workflow-7bdf25ac198e 
 
+https://www.slideshare.net/camunda/camundacon-2018-the-reemergence-of-workflow-automation-keynote-camunda
