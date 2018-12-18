@@ -108,12 +108,15 @@ In case Model Driven Development (MDD) connects in your mind to something ugly, 
 ### BPMN as programming model
 
 !["talanx1"](pics/camundacon-2018-our-journey-to-the-digital-world-of-insurance-talanx-26-1024.jpg "bpmn as programming model")
-
 Process is described using BPMN. http://mlwiki.org/index.php/BPMN
 
 Process flow is executed using workflow engine.
 
 Service Endpoint can be http (rest) or java or other jvm language (in case bpm engine supports this)
+
+Hmm.. Ever thought how Camunda BPM works with Clojure? Someone has https://github.com/tobiasbehr/camunda-clojure
+
+But nothing beats community: Here's Kotlin example https://github.com/holunda-io/camunda-springboot-kotlin
 
 ### DMN as programming model
 
