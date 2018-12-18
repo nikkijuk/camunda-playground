@@ -1,6 +1,20 @@
 # camunda-playground
 bpm for programmers?
 
+## Motivation 
+
+Motivation of using Process / Workflow Automation lies on search for excellency in long run (Strategic decision) - making algorithms of company easy to reason and
+fast to change - or easier programming model (Tactical decision) - to prevent hidden monolith, i.e. temporary and physically coupled systems which need
+to be deployed and operated as whole.
+
+!["Strategy1"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-49-1024.jpg)
+
+If BPM is seen as Strategic and not (only) Tactical tool journey using BPM might look like this
+- Take in use: small problems solved locally
+- Operate: it works
+- Improve: Enhance and extend existing processes
+- Extend: Find new use cases, share experiences, connect processes together
+
 ## Camunda
 
 Camunda BPM is good example of BPMN based workflow automation toolset. There's other toolsets also, especially single vendor driven offerings, but Camunda seems to be more than just ok for java based integration projects.
@@ -22,10 +36,6 @@ From my standpoint it look like Camunda as company and Camunda BPM have some str
 - Event based microservices use cases are covered by Camunda BPM (mature) and soon performance optimized witb Zeebe (bleeding edge)
 
 ## BPM features
-
-Motivation of using Process Automation lies on search for excellency in long run - making algorithms of company easy to reason and
-fast to change - or easier programming model - to prevent hidden monolith, i.e. temporary and physically coupled systems which need
-to be deployed and operated as whole.
 
 Bpm toolset provides typically
 - modeling tools
@@ -341,7 +351,7 @@ and thus create problematic division of work.
 
 - It's too easy for technology teams to be assigned by layer, so delivering any valuable business change requires slow and
   expensive coordination between multiple teams. We caution against the effects of this layering and recommend arranging
-  services and teams primarily according to business capabilit
+  services and teams primarily according to business capability.
   
   https://www.thoughtworks.com/radar/techniques/layered-microservices-architecture
 
