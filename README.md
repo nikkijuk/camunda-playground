@@ -5,7 +5,7 @@ Bpm for programmers? I have saved here my notes and thoughts to help fellow deve
 ## Motivation 
 
 Motivation of using Process / Workflow Automation lies on search for excellency in long run (Strategic decision, often done by Management) - making algorithms of company easy to reason and
-fast to change - or easier programming model (Tactical decision, often done by IT Department or Development Team) - to prevent hidden monolith, i.e. temporary and physically coupled systems which need
+fast to change - or easier programming model (Tactical decision, often done by IT Department or Software Development Team) - to prevent hidden monolith, i.e. temporary and physically coupled systems which need
 to be deployed and operated as whole.
 
 !["Strategy1"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-49-1024.jpg)
@@ -59,7 +59,7 @@ Here's Camundas architecture as example
 
 ## BPM enables continuous improvement
 
-It is seldom that systems doesn't change, and thus it's valuable to build them easily adaptable.
+It is seldom that systems do not change (actually: if they stay same they are dead), and thus it's valuable to build them easily adaptable.
 
 There's theory: making process easy to understand and change makes it possible to measure and improve.
 
@@ -78,9 +78,9 @@ There is clear distinction of BPM use cases to
 
 Monolithic single vendor suites were traditionally thought as standardisation and cost saving tools. So: here we aim for efficiency.
 
-Application and solution level point solutions can be called as api gateways, bpm tools, eai tools, enterprise service bus, etc. and they are most propably provided as part of IT operations or software development, and could aimed to modernise enterprise.
+Application and solution level point solutions can be called as api gateways, bpm tools, eai tools, enterprise service bus, etc. and they are most propably provided as part of IT operations or software development, and could by used to modernise enterprise.
 
-Beware to use single vendor suite targeted for complex enterprise intergration task to "simple" solution embedded application integration use cases. Opposite is definitely also true: if you need lot of out of box connectors for ERM, CRM or .. solutions then low level engine alone might not really solve challenge you have.
+Beware to use single vendor suite targeted for complex enterprise intergration task to "simple" solution embedded application integration use cases. Opposite is definitely also true: if you need lot of out of box connectors for ERM, CRM, SCM, PLM or .. (add acronyms here) solutions then low level engine alone might not really solve challenge you have.
 
 Example: Users of Oracle SOA suite are on "in single vendor we believe" category. Don't try it without good reason. 
 
@@ -102,6 +102,8 @@ Microservices that have database per service are good candidates for external wo
 Saga is pattern which can be implemented using BPM https://microservices.io/patterns/data/saga.html
 
 These technical use cases are making eventually consistent data processing using distributed transactions and microservices reality. https://blog.bernd-ruecker.com/saga-how-to-implement-complex-business-transactions-without-two-phase-commit-e00aa41a1b1b
+
+In case Model Driven Development (MDD) connects in your mind to something ugly, like "generate if from model, then customize" horror scenarios, just relax. Model really drives logic here, as BPMN is directly executed (interpreted runtime). 
 
 ### BPMN as programming model
 
@@ -357,6 +359,10 @@ and thus create problematic division of work.
   services and teams primarily according to business capability.
   
   https://www.thoughtworks.com/radar/techniques/layered-microservices-architecture
+
+## Reality check
+
+https://www.slideshare.net/ufried?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview
 
 ## References
 
