@@ -140,7 +140,7 @@ Kotlin
 
 ### DMN as programming model
 
-Rules are described using DMN. http://www.bpm-guide.de/2015/07/20/dmn-decision-model-and-notation-introduction-by-example/. DMN is very analytic friendly way of using single or multiple related decision tables.
+Rules are described using DMN. http://www.bpm-guide.de/2015/07/20/dmn-decision-model-and-notation-introduction-by-example/. DMN is very analyst friendly way of using single or multiple related decision tables.
 
 -  Decisions can be modeled and executed using the same notation. This allows to use business analysis results as „code“ making changes to the rules behind the decision really easy. Given appropriate tooling it might even be realistic that business people can directly edit concrete rules within a given structure (more on this later). As rules (leading to decisions) change much more often that processes or entities, being agile in changing rules is absolutely necessary for being future ready!
 
@@ -155,7 +155,10 @@ DMN is expressed using XML syntax. There's also possibility to generate native j
 Managing rules is evidently good idea if there's thousands of them. At that point it might even be mandatory formalize rules and save
 them to repository to fight against accidental complexity.
 
-## BPM engine as controlling component
+## Microservices: BPM engine as controlling component
+
+- In short, the microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and independently deployable by fully automated deployment machinery. There is a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies.  
+  -- James Lewis and Martin Fowler
 
 Balance between independent modules and central control of processes might be hard to find.
 
