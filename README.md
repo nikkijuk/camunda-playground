@@ -290,8 +290,8 @@ It's inevitable that you should pay some attention to these ideas. https://www.s
 
 Rest communication is de-facto easiest way to integrate services (connections, http handling, json handling, security tokens, etc..)
 
-Long response times are creating deadlocks and blocking resources, which might slow down overall system even if problem is only
-affecting single component.
+But beware: Long response times are creating deadlocks and blocking resources, which might slow down overall system even if problem is only
+affecting single component. To enjoy yourself with disaster stories take one post-mortem and congratulate yourself if you were not at that project. http://oredev.org/2016/sessions/avoiding-microservice-megadisasters
 
 If service is called using asynchronous rest / http call result can be
 - Success: Service replied and client knows state of server (might be slow, but response comes eventually)
