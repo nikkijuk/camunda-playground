@@ -117,8 +117,10 @@ It's up to who drives development - or if it is done together
  
 Analyst drives
 - model, deploy, run => then handover to developers (if needed)
+
 Developer drives
 - model => then handover to developers, who develop, deploy, run, and get back to analyst with questions
+
 Together
 - modelling, implementing and testing processes is done together iteratively
 
