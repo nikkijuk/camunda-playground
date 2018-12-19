@@ -245,6 +245,13 @@ which can make deployment easier at least in small use cases
 
 Note that here order is controlling interactions so we have here "orchestration" as process model. There's also long running state in Payment, as it needs to wait until user has paid or canceled payment request.
 
+How to implement java microservices? Easy. Just choose your tools. 
+
+- Spring Boot. http://spring.io/projects/spring-boot
+- Eclipse MicroProfile. https://microprofile.io/
+- Lagom. https://www.lightbend.com/lagom-framework
+- and many others .. 
+
 ## Distributed computing 
 
 Taking as first principle of design that distributed system functions like non distributed is often connected to Fallacies of distributed
@@ -276,6 +283,8 @@ But it's clear that this change adds complexity somewhere while it at the same t
 If efficiency is important everything possible would need to be async! Rest is heavy ...
 
 !["lb3"](pics/the-future-of-services-building-asynchronous-resilient-and-elastic-systems-12-1024.jpg)
+
+It's inevitable that you should pay some attention to these ideas. https://www.slideshare.net/Lightbend/the-future-of-services-building-asynchronous-resilient-and-elastic-systems
 
 ## Errors in Rest communication
 
