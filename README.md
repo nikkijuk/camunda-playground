@@ -162,7 +162,7 @@ them to repository to fight against accidental complexity.
 
 Balance between independent modules and central control of processes might be hard to find.
 
-To me central controlling component enables services to be small and independent as there's controller function above them.
+To me central controlling component enables services to be small and independent as there's controller function which controls complex interactions of them.
 
 BPM engine does controlling by
 - orchestrating flow of service calls
@@ -173,7 +173,7 @@ BPM engine does controlling by
 
 !["br1"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-21-1024.jpg "BPM as balancing act")
 
-If plan is to use microservices, i.e single purpose lightweight services, coupling of them together needs to happen somewhere else.
+If plan is to use microservices, i.e single purpose lightweight services, coupling of them together needs to happen somewhere else. Especially handling failures and rollbacks is complex and needs to be planned ahead.
 - Microservices shouldn't know each other
 - Each call to microservices should be idempotent (always leave service to same state with same parameters)
 - Microservice should support compensation (return to previous state)
@@ -198,16 +198,16 @@ There's no restrictions on communication models, except that all process calls a
 - Messaging using rest, some calls return results in request / response, some use callbacks
 - Mixed: events, rest - whatever
 
-If integration service is inside DDD Bounded context it's just one service, doesn't matter that it doesn't have any JAVA inside.
+If integration service, and all services it uses, are inside DDD Bounded context, whole can be seen as just one service, doesn't matter that it doesn't have any JAVA inside or BPM is not embedded within service.
 
 This is centralized model of running processes, but it works and is easy to implement.
 
 ### BPM Engine as white box
 
 When BPM engine is seen as white box you have every feature of black box in use, but also
-- can embded BPM engine to your app
-- can start processes as you wish
-- endpoints can be java classes (inprocess calls)
+- can embed BPM engine to your app
+- can start processes as you wish (local call from your service logic)
+- endpoints can be java classes (inprocess calls from bpm engine)
 
 https://blog.bernd-ruecker.com/architecture-options-to-run-a-workflow-engine-6c2419902d91
 
