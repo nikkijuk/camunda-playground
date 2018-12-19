@@ -126,15 +126,15 @@ Together
 
 !["talanx1"](pics/camundacon-2018-our-journey-to-the-digital-world-of-insurance-talanx-26-1024.jpg "bpmn as programming model")
 
-Process is described using BPMN. http://mlwiki.org/index.php/BPMN
-
-Process flow is executed using workflow engine.
-
 Service Endpoint can be http (soa, rest) or java or other jvm language (in case bpm engine supports this)
 
-Hmm.. Ever thought how Camunda BPM works with Clojure? Someone has https://github.com/tobiasbehr/camunda-clojure
+Some JVM languages to try
 
-But nothing beats community: Here's Kotlin example https://github.com/holunda-io/camunda-springboot-kotlin
+Lisp syntax
+- Ever thought how Camunda BPM works with Clojure? Someone has https://github.com/tobiasbehr/camunda-clojure
+
+Kotlin
+- Nothing beats community: Here's Kotlin example https://github.com/holunda-io/camunda-springboot-kotlin
 
 ### DMN as programming model
 
@@ -396,3 +396,5 @@ https://www.slideshare.net/camunda/20180821-camunda-meetup-berlinrobert-breske
 https://blog.bernd-ruecker.com/use-camunda-without-touching-java-and-get-an-easy-to-use-rest-based-orchestration-and-workflow-7bdf25ac198e 
 
 https://www.slideshare.net/camunda/camundacon-2018-the-reemergence-of-workflow-automation-keynote-camunda
+
+https://www.slideshare.net/skemsley/developerfriendly-bpm
