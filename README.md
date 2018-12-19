@@ -354,13 +354,12 @@ I haven't yet really understood if this flexibility has value..
 
 There's several strategies to map process data to systems which implement process.
 
-Easiest is to have canonical data model for enterprise - this means: no mapping, or mapping in systems implementation
+Easiest is to have canonical data model for enterprise - this means: no mapping, or mapping in systems implementation. https://dzone.com/articles/still-struggling-between-platforms-and-microservic
 
-https://dzone.com/articles/still-struggling-between-platforms-and-microservic
+One way of this is to use open api, possibly so that BPMN models and endpoints are defined by same people. https://www.openapis.org/
 
-One way of this is to use open api, possibly so that BPMN models and endpoints are defined by same people
+And well, yes. If canonical model goes wrong or it doesn't just evolve but needs big refactoring you might be in such a trouble that it's better to change workplace before anyone understands magnitude of problem resulting your teams nice canonical model. https://www.innoq.com/en/blog/thoughts-on-a-canonical-data-model/
 
-https://www.openapis.org/
 
 If there's no canonical data model mapping is needed
 
