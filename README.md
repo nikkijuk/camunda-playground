@@ -238,12 +238,12 @@ is leading interactions and dictating possible functionality)
 
 ## BPM within Rest based architecture
 
-In REST (or gRPC or ..) architecture services need to know endpoints which take part to process in addition to message payload (json), but bus is away,
+In REST (or gRPC or .. since mostly this is RPC, and can as well use efficient binary formats) architecture services need to know endpoints which take part to process in addition to message payload (json), but bus is away,
 which can make deployment easier at least in small use cases
 
 !["br5"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-43-1024.jpg "Bpm and Rest")
 
-Note that here order is controlling interactions so we have here "orchestration" as process model.
+Note that here order is controlling interactions so we have here "orchestration" as process model. There's also long running state in Payment, as it needs to wait until user has paid or canceled payment request.
 
 ## Distributed computing 
 
