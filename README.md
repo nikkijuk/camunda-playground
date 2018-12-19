@@ -221,9 +221,12 @@ analyzed using bpm engines administration and optimization tools .
 
 ## BPM architecture options
 
-### BPM within Event based architecture
+### BPM within Event based architecture(s)
 
-In event based architecture all systems are decoupled and exchanges messages thru share bus.
+In event based architecture all systems are decoupled and exchanges messages using shared bus. It's not evident to me if there's single or multiple valid event based architectures. https://martinfowler.com/articles/201701-event-driven.html
+
+-  it's very easy to make nicely decoupled systems with event notification, without realizing that you're losing sight of that larger-scale flow, and thus set yourself up for trouble in future years. 
+   -- Martin Fowler
 
 Every interaction in using async Events, and apps just tell something has happened. None controls here anything, everyone listens and reacts if event
 seems important.
