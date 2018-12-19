@@ -107,6 +107,8 @@ In case Model Driven Development (MDD) connects in your mind to something ugly, 
 
 ### BPMN as programming model
 
+Process is described using BPMN. http://mlwiki.org/index.php/BPMN. Process flow is executed using workflow / BPM engine.
+
 It's possible to use BPM as
 - Tool converging work of Analysts & Developers, or even to get whole company involved
 - Tool for Developers
@@ -138,11 +140,15 @@ Kotlin
 
 ### DMN as programming model
 
+Rules are described using DMN. http://www.bpm-guide.de/2015/07/20/dmn-decision-model-and-notation-introduction-by-example/. DMN is very analytic friendly way of using single or multiple related decision tables.
+
+-  Decisions can be modeled and executed using the same notation. This allows to use business analysis results as „code“ making changes to the rules behind the decision really easy. Given appropriate tooling it might even be realistic that business people can directly edit concrete rules within a given structure (more on this later). As rules (leading to decisions) change much more often that processes or entities, being agile in changing rules is absolutely necessary for being future ready!
+
 !["talanx2"](pics/camundacon-2018-our-journey-to-the-digital-world-of-insurance-talanx-27-1024.jpg "dmn as programming model")
 
-DMN (Decision Modeling Notation) can be used to describe business rules
+DMN (Decision Modeling Notation) can be used to model decision done based on data present runtime in process instance. Results of DMN execution are saved to process instance and process can branch based on this newly reasoned state.
 
-There's also possibility to generate native java from DMN rules, which makes execution of rules fast and independent of Camunda.
+DMN is expressed using XML syntax. There's also possibility to generate native java from DMN rules, which makes execution of rules fast and independent of Camunda.
 
 !["gs2"](pics/richard-tarling-managing-director-and-randall-graebner-senior-engineer-from-goldman-sachs-camunda-day-nyc-2018-14-1024.jpg "perfornabt DMN execution")
 
