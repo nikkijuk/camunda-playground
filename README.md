@@ -107,12 +107,28 @@ In case Model Driven Development (MDD) connects in your mind to something ugly, 
 
 ### BPMN as programming model
 
+It's possible to use BPM as
+- Tool converging work of Analysts & Developers, or even to get whole company involved
+- Tool for Developers
+
+!["paradigm1"](pics/developerfriendly-bpm-10-1024.jpg)
+
+It's up to who drives development - or if it is done together
+ 
+Analyst drives
+- model, deploy, run => then handover to developers (if needed)
+Developer drives
+- model => then handover to developers, who develop, deploy, run, and get back to analyst with questions
+Together
+- modelling, implementing and testing processes is done together iteratively
+
 !["talanx1"](pics/camundacon-2018-our-journey-to-the-digital-world-of-insurance-talanx-26-1024.jpg "bpmn as programming model")
+
 Process is described using BPMN. http://mlwiki.org/index.php/BPMN
 
 Process flow is executed using workflow engine.
 
-Service Endpoint can be http (rest) or java or other jvm language (in case bpm engine supports this)
+Service Endpoint can be http (soa, rest) or java or other jvm language (in case bpm engine supports this)
 
 Hmm.. Ever thought how Camunda BPM works with Clojure? Someone has https://github.com/tobiasbehr/camunda-clojure
 
