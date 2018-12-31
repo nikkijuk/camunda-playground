@@ -1,11 +1,22 @@
 # camunda-playground
 
-Bpm for programmers? I have saved here my notes and thoughts to help fellow developers to reason if BPM could help them. My opinion: Absolutely maybe!
+Bpm for programmers? 
+I have saved here my notes and thoughts to help fellow developers to reason if BPM could help them. 
+My opinion: Absolutely maybe!
+
+During journey of understanding what workflow automation means in microservices world my topic has shifted a bit.
+Now I want to know how to keep state consistent within domain of multiple microservices.
+
+Name of game: Saga - here's for all nerds: "a long story about Scandinavian history, written in the Old Norse language in the Middle Ages, mainly in Iceland". 
+But wait. Saga in literature is more generally "a long, detailed story of connected events". https://dictionary.cambridge.org/dictionary/english/saga 
 
 ## Motivation 
 
-Motivation of using Process / Workflow Automation lies on search for excellency in long run (Strategic decision, often done by Management) - making algorithms of company easy to reason and
-fast to change - or easier programming model (Tactical decision, often done by IT Department or Software Development Team) - to prevent hidden monolith, i.e. temporary and physically coupled systems which need
+Motivation of using Process / Workflow Automation lies on search for 
+- excellency in long run (Strategic decision, often done by Management) 
+-- making algorithms of company easy to reason and fast to change 
+- or easier programming model (Tactical decision, often done by IT Department or Software Development Team) 
+-- to prevent hidden monolith, i.e. temporary and physically coupled systems which need
 to be deployed and operated as whole.
 
 !["Strategy1"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-49-1024.jpg)
@@ -16,7 +27,7 @@ If BPM is seen as Strategic and not (only) Tactical tool journey using BPM might
 - Improve: Enhance and extend existing processes
 - Extend: Find new use cases, share experiences, connect processes together
 
-Most sophisticated BPM tools are using standard based process notation (BPMN) plus rule (DMN) and case (CMMN) descriptions. Not all engines are alike, but standars are expanding pool of experts which companies can use.
+Most sophisticated BPM tools are using standard based process notation (BPMN) plus rule (DMN) and case (CMMN) descriptions. Not all engines are alike, but standars are expanding pool of experts.
 
 ## Camunda
 
@@ -95,11 +106,26 @@ level (no silos here).
 
 !["gs1"](pics/richard-tarling-managing-director-and-randall-graebner-senior-engineer-from-goldman-sachs-camunda-day-nyc-2018-7-1024.jpg "bpm as model driven development")
 
-Still, there is not single use case for BPM, but several of them https://blog.bernd-ruecker.com/5-workflow-automation-use-cases-you-might-not-have-thought-of-9bdeb0e71996
+Still, there is not single use case for BPM, but several of them. https://blog.bernd-ruecker.com/5-workflow-automation-use-cases-you-might-not-have-thought-of-9bdeb0e71996
 
-Microservices that have database per service are good candidates for external workflow control when data needs to be consistent
+Microservices, which per definition have database per service, are good candidates for external workflow control, when data needs to be consistent.
 
-Saga is pattern which can be implemented using BPM https://microservices.io/patterns/data/saga.html
+Saga pattern, originally described 1987 for long living transactions in database systems, can be implemented using BPM. https://microservices.io/patterns/data/saga.html
+
+Saga patterns usage is reasoned in Microservices In Action as follows
+
+- In a distributed transaction, you manage uncertainty using
+  locks on data; without transactions, you manage uncertainty through semantically appropriate
+  workflows that confirm, cancel, or compensate for actions as they occur.
+
+Compensation, described in detail in Enterprise Integration Patterns, can be used to manage overall state of distributed services
+
+- You use compensating actions in sagas to undo previous operations and return
+  your system to a more consistent state. The system isn’t guaranteed to be returned to
+  the original state; the appropriate actions depend on business semantics. This design
+  approach makes writing business logic more complex — because you need to consider
+  a wide range of potential scenarios — but is a great tool for building reliable interactions
+  between distributed services.
 
 These technical use cases are making eventually consistent data processing using distributed transactions and microservices reality. https://blog.bernd-ruecker.com/saga-how-to-implement-complex-business-transactions-without-two-phase-commit-e00aa41a1b1b
 
@@ -184,6 +210,39 @@ complexity.
 Simply put: complexity needs to go somewhere else. To global flow of services, which, in it's best is controlled.
 
 !["br2"](pics/camundacon-2018-the-role-of-workflows-in-microservices-camunda-48-1024.jpg "BPM and microservices")
+
+Saga pattern pops up here as orchestrated implementation described in Microservices in Action.
+
+- In an orchestrated saga, a service takes on the role of orchestrator (or coordinator): a process that
+  executes and tracks the outcome of a saga across multiple services. An orchestrator
+  might be an independent service or a capability of an existing service.
+- The sole responsibility of the orchestrator is to manage the execution of the saga. It
+  may interact with participants in the saga via asynchronous events or request/response
+  messages. Most importantly, it should track the state of execution for each stage in the
+  process; this is sometimes called the saga log. 
+    
+It should be by now ecvident that "orchestrator" is here BPM engine, ans SAGA is single process or subprocess.
+
+Saga pattern is like most of implementation strategies. No silver bullets here.
+
+- Centralizing the saga’s sequencing logic in a single service makes it significantly
+  easier to reason about the outcome and progress of that saga, as well as change
+  the sequencing in one place. In turn, this can simplify individual services, reducing
+  the complexity of states they need to manage, because that logic moves to the
+  coordinator.
+- This approach does run the risk of moving too much logic to the coordinator. At
+  worst, this makes the other services anemic wrappers for data storage, rather than
+  autonomous and independently responsible business capabilities.
+
+No Locks. No ACID. No isolation. From data point of view Sagas & Long running processes - whether choreographed or orchestrated - have more persistent states as intermediate states are persisted and can be modified futher. 
+
+Microservices in Action presents your new world like this
+- Unlike ACID transactions, sagas aren’t isolated. The result of each local transaction is
+  immediately visible to other transactions affecting that entity. This visibility means that
+  a given entity might get simultaneously involved in multiple, concurrent sagas. As such,
+  you need to design your business logic to expect and handle intermediate states. The
+  complexity of the interleaving required primarily depends on the nature of the underlying
+  business logic.
 
 ## BPM deployment options
 
@@ -358,10 +417,9 @@ Easiest is to have canonical data model for enterprise - this means: no mapping,
 
 One way of this is to use open api, possibly so that BPMN models and endpoints are defined by same people. https://www.openapis.org/
 
-And well, yes. If canonical model goes wrong or it doesn't just evolve but needs big refactoring you might be in such a trouble that it's better to change workplace before anyone understands magnitude of problem resulting your teams nice canonical model. https://www.innoq.com/en/blog/thoughts-on-a-canonical-data-model/
+And well, yes. If canonical model goes wrong or it doesn't just evolve but needs big refactoring you might be in such a trouble that it's better to change workplace before anyone understands magnitude of problem resulting from your teams nice canonical model. https://www.innoq.com/en/blog/thoughts-on-a-canonical-data-model/
 
-
-If there's no canonical data model mapping is needed
+If there's no canonical data model mapping is needed. No problem. Now try to do anything locally. https://medium.com/@nathankpeck/microservice-principles-smart-endpoints-and-dumb-pipes-5691d410700f
 
 !["mapping1"](pics/20180821-camunda-meetup-berlinrobert-breske-12-1024.jpg)
 
