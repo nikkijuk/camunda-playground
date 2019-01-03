@@ -50,7 +50,7 @@ Camunda BPM is good example of BPMN based workflow automation toolset. There's o
 
 Camunda BPM can be used as standalone installation or embedded within host applications. When used as embedded workflow engine Camunda BPM offers native Java API's.
 
-Camunda BPM was forked 2013 from open source library Activiti https://www.activiti.org/. Activiti is commercially available as part of Alfresco suite https://www.alfresco.com/platform/process-services-bpm. 
+Camunda BPM, Signavio and Flowable are all rooted to Activiti. https://www.enterpriseirregulars.com/110881/another-rift-open-source-bpm-market-flowablebpm-forks-alfresco-activiti/
 
 Camunda BPM is offered as Open Source (Apache 2.0 license), commercial version adds monitoring and optimization features https://camunda.com/enterprise/. Camunda can be seen as "best of breed" open source stack.
 
