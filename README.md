@@ -10,6 +10,21 @@ Now I want to know how to keep state consistent within domain of multiple micros
 Name of game: Saga - here's for all nerds: "a long story about Scandinavian history, written in the Old Norse language in the Middle Ages, mainly in Iceland". 
 But wait. Saga in literature is more generally "a long, detailed story of connected events". https://dictionary.cambridge.org/dictionary/english/saga 
 
+## Shorter path
+
+If you don't like to read too much here's short recipe
+
+- Read Chapter 5, "Transactions and Queries in Microservices" from Morgan Bruce, Paulo A. Pereira "Microservices in Action". Manning 2018 . https://www.manning.com/books/microservices-in-action
+
+Then try Camunda (enterprise version recommended)
+
+Open tutorial and follow instructions at: https://camunda.com/learn/videos/
+- "Get Started" for installation
+- "for Java Developers" to get first impression on integrating process and java code
+- "Error Handling" for saga & compensation
+
+There's also nice shorts for rules (DMN) and process communication (human tasks, rest api, etc).
+
 ## Motivation 
 
 Motivation of using Process / Workflow Automation lies on search for 
