@@ -22,7 +22,9 @@ loanApproval process in recources/loanApproval.bpmn is unchanged
 
 I guess it's ok that resources/META-INF/processes.xml is empty since process is started at WebappExampleProcessApplication using exact name of process
 
-     runtimeService.startProcessInstanceByKey("loanApproval");
+     runtimeService?.startProcessInstanceByKey("loanApproval");
+
+Additional question mark is needed since kotlin can't be sure that Spring finds instance at runtime - so, reference might be null
 
 ## see process
 
