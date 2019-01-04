@@ -40,7 +40,7 @@ It's not very fancy, but enough for now
 
 You can then build the application with mvn clean install and then run it with mvn spring-boot:run command.
 
-note: spring-boot:run is ok at development time, but not at runtime, so here might be some problems waiting
+note: spring-boot:run is ok at development time, but not at production, so here might be some problems waiting
 
 See logs to find out if engine is deployed and see it running at localhost:8080 with demo/demo
 
