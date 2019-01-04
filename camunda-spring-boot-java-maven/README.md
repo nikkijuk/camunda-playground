@@ -2,17 +2,16 @@
 
 ## seed
 
-Seed implementation of this repository is taken from the example Spring Boot application for the guide at [camunda.org](http://camunda.org/get-started/spring-boot.html).
+Seed implementation of this repository is taken from https://docs.camunda.org/get-started/spring-boot/
 
 ## changes
 
 Notable changes
 
-- Got this from master
-- Imported to Idea
-- Corrected some warnings which maven 4 was givin
+- Got this from master and imported to Idea
+- Corrected some warnings which maven 4 was giving (I guess not important ones, but still)
 - Changed admin user to demo/demo in resources/application.yaml
-- Commented startup process to WebappExampleProcessApplication
+- Commented startup process to WebappExampleProcessApplication (functionality not changed)
 
 ## notes
 
@@ -22,7 +21,7 @@ I guess it's ok that resources/META-INF/processes.xml is empty since process is 
 
      runtimeService.startProcessInstanceByKey("loanApproval");
 
-## process
+## see process
 
 there's just one process and you can look inside it
 - get camunda modeler https://camunda.com/products/modeler/
@@ -31,12 +30,8 @@ there's just one process and you can look inside it
 
 It's not very fancy, but enough for now
 
-## starting
+## run and test
 
 You can then build the application with mvn clean install and then run it with java -jar command.
 
 See logs to find out if engine is deployed and see it running at localhost:8080 with demo/demo
-
-## examples
-
-https://github.com/camunda/camunda-bpm-examples/tree/master/spring-boot-starter/example-web
