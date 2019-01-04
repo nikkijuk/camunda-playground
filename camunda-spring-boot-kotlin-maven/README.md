@@ -15,6 +15,7 @@ Notable changes
 - Changed admin user to demo/demo in resources/application.yaml
 - WebappExampleProcessApplication.java converted to Application.tk
 - pom.xml modified heavily - not certain if all changes are relevant
+- important: repackage didn't find main class - result: app can't be started with java -jar
 
 ## notes
 
@@ -38,6 +39,8 @@ It's not very fancy, but enough for now
 ## run and test
 
 You can then build the application with mvn clean install and then run it with mvn spring-boot:run command.
+
+note: spring-boot:run is ok at development time, but not at runtime, so here might be some problems waiting
 
 See logs to find out if engine is deployed and see it running at localhost:8080 with demo/demo
 
