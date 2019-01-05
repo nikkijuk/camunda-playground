@@ -14,6 +14,8 @@ Notable changes
 
 - Changed admin user to demo/demo in resources/application.yaml
 - WebappExampleProcessApplication.java converted to Application.tk
+- LoanController added to support get request to /requestLoan
+- LoanRequest added to serialize result of process initialization (returns id)
 - pom.xml modified heavily - not certain if all changes are relevant
 - important: repackage didn't find main class - result: app can't be started with java -jar
 
@@ -44,4 +46,8 @@ note: spring-boot:run is ok at development time, but not at production, so here 
 
 See logs to find out if engine is deployed and see it running at localhost:8080 with demo/demo
 
-impotant to look for: there should be 1 process definition deployed
+Try also to send requests to  localhost:8080/requestLoan, result should be something like id: "6be0e2e5-1140-11e9-95f7-9cb6d0f48aa2"
+
+impotant to look for:
+- there should be 1 process definition deployed, and at the very start one process instance started (one human task waiting)
+- there should be one process instance, i.e. one human task, for each get request to /requestLoan
