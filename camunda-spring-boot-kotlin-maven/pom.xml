@@ -2,7 +2,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.camunda.bpm.getstarted</groupId>
-  <artifactId>loan-approval-spring-boot</artifactId>
+  <artifactId>loan-approval-spring-boot-kotlin</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -67,7 +67,7 @@
     <!--added kotlin as dependency -->
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jdk8</artifactId>
+      <artifactId>kotlin-stdlib</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
     <dependency>
