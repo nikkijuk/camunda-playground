@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_092jtub" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="creditRating" name="creditRating" camunda:versionTag="1">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Income" camunda:inputVariable="monthlyIncome">
+        <inputExpression id="inputExpression_1" typeRef="long">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_00hy1b8" label="Debt" camunda:inputVariable="previousDebt">
+        <inputExpression id="LiteralExpression_1c4hrn2" typeRef="long">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Rating" name="creditRating" typeRef="string" />
+      <output id="OutputClause_1c6z4lz" label="Allowance" name="loanUpperLimit" typeRef="long" />
+      <rule id="DecisionRule_097cgbw">
+        <inputEntry id="UnaryTests_1jiaeix">
+          <text>&lt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nl6utg">
+          <text>&lt; 100</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t7fs4a">
+          <text>B</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0q7s3m4">
+          <text>2000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qzkhro">
+        <inputEntry id="UnaryTests_03h1hxf">
+          <text>[500..1000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w91toa">
+          <text>&lt;= 3000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0boegy9">
+          <text>B</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05ismup">
+          <text>10000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03dz5rq">
+        <inputEntry id="UnaryTests_19lg38y">
+          <text>&gt; 1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_014dw7v">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gfd7e7">
+          <text>A</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1histr4">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qqbmin">
+        <inputEntry id="UnaryTests_1muc89a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p5wmqb">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_099nyyl">
+          <text>C</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1nqu3mu">
+          <text>1000</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
