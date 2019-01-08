@@ -16,25 +16,32 @@ Notable changes
 - WebappExampleProcessApplication.java converted to Application.tk
 - LoanController added to support get request to /requestLoan
 - LoanRequest added to serialize result of process initialization (returns id)
+- creditRating.dmn added to resolve credit rating
+- LogVariables java delegate added to LoanDelegates.kt
+- loanApproval.bpmn exteded with execution of rule and logging of variables
 - pom.xml modified heavily - not certain if all changes are relevant
 - important: repackage didn't find main class - result: app can't be started with java -jar
 
-## notes
+## process
 
-loanApproval process in recources/loanApproval.bpmn is unchanged
+Process is extended with Add Credit Rating rule task, which uses decision table to resolve credit rating (a, b, c)
 
-I guess it's ok that resources/META-INF/processes.xml is empty since process is started at WebappExampleProcessApplication using exact name of process
+After manual task java delegate is used to write process variables to log
 
-     runtimeService?.startProcessInstanceByKey("loanApproval");
+![bpmn](loanApproval-bpmn.png "Process")
 
-Additional question mark is needed since kotlin can't be sure that Spring finds instance at runtime - so, reference might be null
+## rule
 
-## see process
+This is very simple decision table, which is just interested in income and existing loans and is deriving from these credit rating.
+
+![dmn](creditRating-dmn.png "Rule")
+
+## see process and rule
 
 there's just one process and you can look inside it
 - get camunda modeler https://camunda.com/products/modeler/
 - install it
-- open resources/loanApproval.bpmn
+- open resources/loanApproval.bpmn or resources/creditRating.dmn
 
 It's not very fancy, but enough for now
 
@@ -47,6 +54,11 @@ note: spring-boot:run is ok at development time, but not at production, so here 
 See logs to find out if engine is deployed and see it running at localhost:8080 with demo/demo
 
 Try also to send requests to  localhost:8080/requestLoan, result should be something like id: "6be0e2e5-1140-11e9-95f7-9cb6d0f48aa2"
+
+if you really want to follow how variables are used you should give them as get parameters
+
+ex. localhost:8080/requestLoan?income=1000&loan=100 (debts defaults to zero)
+ex. localhost:8080/requestLoan?income=1000&debts=123&loan=100
 
 impotant to look for:
 - there should be 1 process definition deployed, and at the very start one process instance started (one human task waiting)
