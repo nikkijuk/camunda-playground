@@ -10,6 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.context.event.EventListener
 
+/**
+ * Main class for spring boot application
+ *
+ * note: process engine enabled using @EnableProcessApplication annotation
+ */
 @SpringBootApplication
 @EnableProcessApplication // this is needed to enable process engine to start
 class Application {
@@ -19,9 +24,11 @@ class Application {
 
     @EventListener
     private fun processPostDeploy(event: PostDeployEvent) {
-        // runtimeService?.startProcessInstanceByKey("loanApproval") // ask camunda bpm to start named process with key
+        // starts process with defaults (all zero)
+        // this is just to test manually
         runtimeService?.createProcessInstanceByKey("loanApproval")?.setVariables(hashMapOf("monthlyIncome" to 0L, "previousDebt" to 0L, "requestedLoan" to 0L) as Map<String, Any>?)?.execute()
     }
 }
 
+// main for running spring boot
 fun main(args: Array<String>) = runApplication<Application>(*args).let { Unit }
