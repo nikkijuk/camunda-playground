@@ -38,7 +38,7 @@ This is very simple decision table, which is just interested in income and exist
 
 ## see process and rule
 
-there's just one process and you can look inside it
+there's just one process and one rule and you can look inside them
 - get camunda modeler https://camunda.com/products/modeler/
 - install it
 - open resources/loanApproval.bpmn or resources/creditRating.dmn
@@ -47,7 +47,7 @@ It's not very fancy, but enough for now
 
 ## run and test
 
-You can then build the application with mvn clean install and then run it with mvn spring-boot:run command.
+You can build the application with mvn clean install and then run it with mvn spring-boot:run command.
 
 note: spring-boot:run is ok at development time, but not at production, so here might be some problems waiting
 
@@ -56,10 +56,9 @@ See logs to find out if engine is deployed and see it running at localhost:8080 
 Try also to send requests to  localhost:8080/requestLoan, result should be something like id: "6be0e2e5-1140-11e9-95f7-9cb6d0f48aa2"
 
 if you really want to follow how variables are used you should give them as get parameters
-
-ex. localhost:8080/requestLoan?income=1000&loan=100 (debts defaults to zero)
-ex. localhost:8080/requestLoan?income=1000&debts=123&loan=100
+- ex. localhost:8080/requestLoan?income=1000&loan=100 (debts defaults to zero)
+- ex. localhost:8080/requestLoan?income=1000&debts=123&loan=100
 
 impotant to look for:
 - there should be 1 process definition deployed, and at the very start one process instance started (one human task waiting)
-- there should be one process instance, i.e. one human task, for each get request to /requestLoan
+- there should be one process instance, i.e. one human task waiting, for each get request to /requestLoan
