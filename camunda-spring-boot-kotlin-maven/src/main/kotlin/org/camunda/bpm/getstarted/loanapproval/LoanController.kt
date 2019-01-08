@@ -12,14 +12,17 @@ class LoanController {
     @Autowired
     private val runtimeService: RuntimeService? = null // get handle to camunda bpm engine
 
+    // z.b. localhost:8080/requestLoan?income=1000&loan=100
+    // z.b. localhost:8080/requestLoan?income=1000&debts=123&loan=100
+
     // monthlyIncome
     // previousDebt
     // requestedLoan
     @GetMapping("/requestLoan")
     fun greeting(
-            @RequestParam(value = "income", defaultValue = "0") income: String,
-            @RequestParam(value = "debts", defaultValue = "0") debts: String,
-            @RequestParam(value = "loan", defaultValue = "0") loan: String
+            @RequestParam(value = "income", defaultValue = "0") income: Long,
+            @RequestParam(value = "debts", defaultValue = "0") debts: Long,
+            @RequestParam(value = "loan", defaultValue = "0") loan: Long
     ) =
         //    LoanRequest (id = runtimeService?.startProcessInstanceByKey("loanApproval")?.processInstanceId) // ask camunda bpm to start named process with key, return id of process
 

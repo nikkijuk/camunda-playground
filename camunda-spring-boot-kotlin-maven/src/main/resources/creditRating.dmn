@@ -13,19 +13,26 @@
         </inputExpression>
       </input>
       <output id="output_1" label="Rating" name="creditRating" typeRef="string" />
-      <output id="OutputClause_1c6z4lz" label="Allowance" name="loanUpperLimit" typeRef="long" />
       <rule id="DecisionRule_097cgbw">
         <inputEntry id="UnaryTests_1jiaeix">
           <text>&lt;= 500</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0nl6utg">
-          <text>&lt; 100</text>
+          <text>&lt;= 100</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0t7fs4a">
-          <text>B</text>
+          <text>"B"</text>
         </outputEntry>
-        <outputEntry id="LiteralExpression_0q7s3m4">
-          <text>2000</text>
+      </rule>
+      <rule id="DecisionRule_0qqbmin">
+        <inputEntry id="UnaryTests_1muc89a">
+          <text>&lt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p5wmqb">
+          <text>&gt; 100</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_099nyyl">
+          <text>"C"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0qzkhro">
@@ -36,10 +43,18 @@
           <text>&lt;= 3000</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0boegy9">
-          <text>B</text>
+          <text>"B"</text>
         </outputEntry>
-        <outputEntry id="LiteralExpression_05ismup">
-          <text>10000</text>
+      </rule>
+      <rule id="DecisionRule_0l3luy1">
+        <inputEntry id="UnaryTests_1recsji">
+          <text>[500..1000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02ropk8">
+          <text>&gt; 3000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0st8c4m">
+          <text>"C"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_03dz5rq">
@@ -50,24 +65,7 @@
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1gfd7e7">
-          <text>A</text>
-        </outputEntry>
-        <outputEntry id="LiteralExpression_1histr4">
-          <text>20000</text>
-        </outputEntry>
-      </rule>
-      <rule id="DecisionRule_0qqbmin">
-        <inputEntry id="UnaryTests_1muc89a">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0p5wmqb">
-          <text></text>
-        </inputEntry>
-        <outputEntry id="LiteralExpression_099nyyl">
-          <text>C</text>
-        </outputEntry>
-        <outputEntry id="LiteralExpression_1nqu3mu">
-          <text>1000</text>
+          <text>"A"</text>
         </outputEntry>
       </rule>
     </decisionTable>

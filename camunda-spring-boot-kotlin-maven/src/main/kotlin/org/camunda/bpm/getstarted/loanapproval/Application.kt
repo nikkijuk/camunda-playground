@@ -19,7 +19,8 @@ class Application {
 
     @EventListener
     private fun processPostDeploy(event: PostDeployEvent) {
-        runtimeService?.startProcessInstanceByKey("loanApproval") // ask camunda bpm to start named process with key
+        // runtimeService?.startProcessInstanceByKey("loanApproval") // ask camunda bpm to start named process with key
+        runtimeService?.createProcessInstanceByKey("loanApproval")?.setVariables(hashMapOf("monthlyIncome" to 0L, "previousDebt" to 0L, "requestedLoan" to 0L) as Map<String, Any>?)?.execute()
     }
 }
 
