@@ -4,6 +4,7 @@ buildscript {
 		springBootVersion = '2.1.2.RELEASE'
 		camundaVersion = '7.10.0'
 		camundaBootVersion = '3.2.0'
+		snakeYamlVersion = '1.23'
 	}
 	repositories {
 		mavenCentral()
@@ -15,7 +16,7 @@ buildscript {
 	}
 }
 
-//apply plugin: 'java'
+apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
 apply plugin: 'org.springframework.boot'
@@ -45,7 +46,6 @@ dependencyManagement {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation "org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter:${camundaBootVersion}"
 	implementation 'org.springframework.boot:spring-boot-starter-jooq'
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 	implementation 'org.liquibase:liquibase-core'
@@ -53,8 +53,10 @@ dependencies {
 	implementation "org.jetbrains.kotlin:kotlin-stdlib"
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 	implementation "org.jetbrains.kotlin:kotlin-reflect"
-	// https://mvnrepository.com/artifact/org.yaml/snakeyaml
-	compile "org.yaml:snakeyaml:1.23"
+
+	implementation "org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:${camundaBootVersion}"
+	implementation "org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-rest:${camundaBootVersion}"
+	compile "org.yaml:snakeyaml:${snakeYamlVersion}"
 	
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
