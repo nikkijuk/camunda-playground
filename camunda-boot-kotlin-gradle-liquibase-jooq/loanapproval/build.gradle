@@ -3,6 +3,7 @@ buildscript {
 		kotlinVersion = '1.2.71'
 		springBootVersion = '2.1.2.RELEASE'
 		camundaVersion = '7.10.0'
+		camundaBootVersion = '3.2.0'
 	}
 	repositories {
 		mavenCentral()
@@ -14,6 +15,7 @@ buildscript {
 	}
 }
 
+//apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
 apply plugin: 'org.springframework.boot'
@@ -32,24 +34,30 @@ ext {
 	set('springCloudVersion', 'Greenwich.RC2')
 }
 
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+	imports {
+		mavenBom "org.camunda.bpm:camunda-bom:${camundaVersion}"
+	}
+}
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-rest'
-	implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation "org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter:${camundaBootVersion}"
 	implementation 'org.springframework.boot:spring-boot-starter-jooq'
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 	implementation 'org.liquibase:liquibase-core'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 	implementation "org.jetbrains.kotlin:kotlin-reflect"
+	// https://mvnrepository.com/artifact/org.yaml/snakeyaml
+	compile "org.yaml:snakeyaml:1.23"
+	
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-		mavenBom "org.camunda.bpm:camunda-bom:${camundaVersion}"
-	}
 }
 
 compileKotlin {
@@ -65,3 +73,5 @@ compileTestKotlin {
 		jvmTarget = '1.8'
 	}
 }
+
+

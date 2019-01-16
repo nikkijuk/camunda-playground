@@ -31,7 +31,9 @@ class LoanapprovalApplication {
 }
 
 // main for running spring boot
-fun main(args: Array<String>) {
-	runApplication<LoanapprovalApplication>(*args)
-}
+fun main(args: Array<String>) = runApplication<LoanapprovalApplication>(*args).let { Unit }
+
+//fun main(args: Array<String>) {
+//	runApplication<LoanapprovalApplication>(*args)
+//}
 
