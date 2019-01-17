@@ -2,9 +2,9 @@ buildscript {
 	ext {
 		kotlinVersion = '1.2.71'
 		springBootVersion = '2.1.2.RELEASE'
-		camundaVersion = '7.10.0'
-		camundaBootVersion = '3.2.0'
-		snakeYamlVersion = '1.23'
+		camundaVersion = '7.10.0' // camunda bpm 
+		camundaBootVersion = '3.2.0' // camunda config for spring boot is packaged separately
+		snakeYamlVersion = '1.23'  // for liquibase 
 	}
 	repositories {
 		mavenCentral()
@@ -39,6 +39,8 @@ dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
+	
+	// define camunda bpm versions
 	imports {
 		mavenBom "org.camunda.bpm:camunda-bom:${camundaVersion}"
 	}
@@ -54,8 +56,13 @@ dependencies {
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 	implementation "org.jetbrains.kotlin:kotlin-reflect"
 
-	implementation "org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:${camundaBootVersion}"
+	// starts camunda web ui
+	implementation "org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:${camundaBootVersion}" 
+	
+	// starts camunda rest api
 	implementation "org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-rest:${camundaBootVersion}"
+	
+	// needed by liquibase yaml parser
 	compile "org.yaml:snakeyaml:${snakeYamlVersion}"
 	
 	runtimeOnly 'com.h2database:h2'
@@ -75,5 +82,3 @@ compileTestKotlin {
 		jvmTarget = '1.8'
 	}
 }
-
-

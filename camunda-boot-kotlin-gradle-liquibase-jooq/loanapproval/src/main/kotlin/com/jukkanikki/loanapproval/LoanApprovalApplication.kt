@@ -7,7 +7,6 @@ import org.springframework.boot.runApplication
 import org.camunda.bpm.engine.RuntimeService
 import org.camunda.bpm.spring.boot.starter.event.PostDeployEvent
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.SpringApplication
 import org.springframework.context.event.EventListener
 
 /**
@@ -17,7 +16,7 @@ import org.springframework.context.event.EventListener
  */
 @SpringBootApplication
 @EnableProcessApplication // this is needed to enable process engine to start
-class LoanapprovalApplication {
+class LoanApprovalApplication {
 
 	@Autowired
 	private val runtimeService: RuntimeService? = null // get handle to camunda bpm engine
@@ -31,9 +30,5 @@ class LoanapprovalApplication {
 }
 
 // main for running spring boot
-fun main(args: Array<String>) = runApplication<LoanapprovalApplication>(*args).let { Unit }
-
-//fun main(args: Array<String>) {
-//	runApplication<LoanapprovalApplication>(*args)
-//}
+fun main(args: Array<String>) = runApplication<LoanApprovalApplication>(*args).let { Unit }
 
