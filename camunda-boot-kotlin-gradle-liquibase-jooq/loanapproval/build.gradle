@@ -77,14 +77,15 @@ dependencies {
 	compile "org.yaml:snakeyaml:${snakeYamlVersion}"
 
 	// plugin ensures that all your dependencies use the version and edition specified in the jooq configuration
-	compile 'org.jooq:jooq:${jooqVersion}'
-	
+	//compile 'org.jooq:jooq:${jooqVersion}'
+	compile 'org.jooq:jooq'
+
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 jooq {
-	version = '${jooqVersion}' // the default (can be omitted)
+	version = "${jooqVersion}" // the default (can be omitted)
 	edition = 'OSS'    // the default (can be omitted), other allowed values are PRO, PRO_JAVA_6, and TRIAL
 }
 
