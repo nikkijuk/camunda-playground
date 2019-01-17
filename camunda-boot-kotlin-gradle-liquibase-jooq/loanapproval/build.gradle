@@ -4,6 +4,7 @@ buildscript {
 		springBootVersion = '2.1.2.RELEASE'
 		camundaVersion = '7.10.0' // camunda bpm 
 		camundaBootVersion = '3.2.0' // camunda config for spring boot is packaged separately
+		liquibasePluginVersion = '2.0.1'  // for liquibase 
 		snakeYamlVersion = '1.23'  // for liquibase 
 	}
 	repositories {
@@ -13,6 +14,7 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+		classpath "org.liquibase:liquibase-gradle-plugin:${liquibasePluginVersion}"
 	}
 }
 
@@ -21,6 +23,7 @@ apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.liquibase.gradle'
 
 group = 'com.jukkanikki'
 version = '0.0.1-SNAPSHOT'

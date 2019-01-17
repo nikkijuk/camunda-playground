@@ -5,10 +5,10 @@ databaseChangeLog:
 
   - changeSet:
       id: 1
-      author: nvoxland
+      author: nikkijuk
       changes:
         - createTable:
-            tableName: person
+            tableName: loanRequest
             columns:
               - column:
                   name: id
@@ -18,35 +18,41 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: firstname
-                  type: varchar(50)
-              - column:
-                  name: lastname
+                  name: processId
                   type: varchar(50)
                   constraints:
                     nullable: false
               - column:
-                  name: state
+                  name: monthlyIncome
+                  type: long
+              - column:
+                  name: previousDebt
+                  type: long
+              - column:
+                  name: requestedLoan
+                  type: long
+              - column:
+                  name: creditRating
                   type: char(2)
 
   - changeSet:
       id: 2
-      author: nvoxland
+      author: nikkijuk
       changes:
         - addColumn:
-            tableName: person
+            tableName: loanRequest
             columns:
               - column:
-                  name: username
-                  type: varchar(8)
+                  name: name
+                  type: varchar(50)
 
   - changeSet:
       id: 3
-      author: nvoxland
+      author: nikkijuk
       changes:
         - addLookupTable:
-            existingTableName: person
-            existingColumnName: state
-            newTableName: state
+            existingTableName: loanRequest
+            existingColumnName: creditRating
+            newTableName: creditRating
             newColumnName: id
             newColumnDataType: char(2)
