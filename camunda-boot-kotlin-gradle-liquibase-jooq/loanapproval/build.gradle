@@ -6,15 +6,22 @@ buildscript {
 		camundaBootVersion = '3.2.0' // camunda config for spring boot is packaged separately
 		liquibasePluginVersion = '2.0.1'  // for liquibase 
 		snakeYamlVersion = '1.23'  // for liquibase 
+		jooqVersion = '3.11.9'  // for jooq
+		jooqPluginVersion = '3.0.2'  // for jooq
 	}
 	repositories {
 		mavenCentral()
+		// find jooq plugin
+		maven {
+			url 'https://plugins.gradle.org/m2/'
+		}
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
 		classpath "org.liquibase:liquibase-gradle-plugin:${liquibasePluginVersion}"
+		classpath "nu.studer:gradle-jooq-plugin:${jooqPluginVersion}"
 	}
 }
 
@@ -24,6 +31,7 @@ apply plugin: 'kotlin-spring'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'org.liquibase.gradle'
+apply plugin: 'nu.studer.jooq'
 
 group = 'com.jukkanikki'
 version = '0.0.1-SNAPSHOT'
@@ -67,9 +75,17 @@ dependencies {
 	
 	// needed by liquibase yaml parser
 	compile "org.yaml:snakeyaml:${snakeYamlVersion}"
+
+	// plugin ensures that all your dependencies use the version and edition specified in the jooq configuration
+	compile 'org.jooq:jooq:${jooqVersion}'
 	
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+jooq {
+	version = '${jooqVersion}' // the default (can be omitted)
+	edition = 'OSS'    // the default (can be omitted), other allowed values are PRO, PRO_JAVA_6, and TRIAL
 }
 
 compileKotlin {
@@ -85,3 +101,4 @@ compileTestKotlin {
 		jvmTarget = '1.8'
 	}
 }
+
