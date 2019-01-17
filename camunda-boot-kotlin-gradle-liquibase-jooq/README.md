@@ -10,15 +10,16 @@ Base settings
 Features selected
 - Web, H2, Liquibase, JOOQ, Jersey (JAX-RS), Feign
 
-Code and definitions for Camunda BPM was taken from https://docs.camunda.org/get-started/spring-boot/
+Code and definitions for Camunda BPM were taken from https://docs.camunda.org/get-started/spring-boot/
 
 ## changes
 
 Notable changes
 
-- LoanApprovalApplication.tk annotatated to define it as process application
-- LoanController added to support get request to /requestLoan
-- LoanRequest added to serialize result of process initialization (returns id)
+- Generated LoanApprovalApplication.tk annotatated to define it as process application
+- LoanApprovalApplication.tk exteded to start one process right after deployment of app
+- LoanController.tk added to support get request to /requestLoan
+- LoanRequest.tk added to serialize result of process initialization (returns id)
 - creditRating.dmn added to resolve credit rating
 - LogVariables java delegate added to LoanDelegates.kt
 - loanApproval.bpmn exteded with execution of rule and logging of variables
