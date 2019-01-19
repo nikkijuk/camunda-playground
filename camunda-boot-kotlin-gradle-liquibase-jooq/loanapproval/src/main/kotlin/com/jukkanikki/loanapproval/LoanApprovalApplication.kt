@@ -8,6 +8,7 @@ import org.camunda.bpm.engine.RuntimeService
 import org.camunda.bpm.spring.boot.starter.event.PostDeployEvent
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.event.EventListener
+import org.springframework.transaction.annotation.EnableTransactionManagement
 
 /**
  * Main class for spring boot application
@@ -16,6 +17,7 @@ import org.springframework.context.event.EventListener
  */
 @SpringBootApplication
 @EnableProcessApplication // this is needed to enable process engine to start
+@EnableTransactionManagement // Jooq
 class LoanApprovalApplication {
 
 	@Autowired

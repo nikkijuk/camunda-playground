@@ -83,10 +83,12 @@ dependencies {
 	//compile "com.h2database:h2:${h2Version}"
 
 	// plugin ensures that all your dependencies use the version and edition specified in the jooq configuration
-	//compile 'org.jooq:jooq:${jooqVersion}'
-	implementation 'org.jooq:jooq'
+	compile 'org.jooq:jooq:${jooqVersion}'
+	//implementation 'org.jooq:jooq'
 
 	implementation "com.h2database:h2:${h2Version}"
+
+	jooqRuntime "com.h2database:h2:${h2Version}"
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
@@ -105,15 +107,14 @@ compileTestKotlin {
 	}
 }
 
+
 jooq {
-	version = "${jooqVersion}" // the default (can be omitted)
-	edition = 'OSS'    // the default (can be omitted), other allowed values are PRO, PRO_JAVA_6, and TRIAL
 	loanapproval(sourceSets.main) {
 		jdbc {
-			driver = "org.h2.Driver" // 'org.postgresql.Driver'
-			url =  'jdbc:h2:mem:myDB;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE' // 'jdbc:postgresql://localhost:5432/sample'
+			driver = "org.h2.Driver"
+			url =  'jdbc:h2:mem:myDB;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE'
 			user = 'sa'
-			//password = ''
+			password = ''
 			properties {
 				property {
 					key = 'ssl'
@@ -129,7 +130,7 @@ jooq {
 			}
 			database {
 				// https://www.jooq.org/doc/3.11/manual/code-generation/codegen-advanced/codegen-config-database/codegen-database-name/
-				name = 'org.jooq.meta.h2.H2Database' // 'org.jooq.meta.postgres.PostgresDatabase'
+				name = 'org.jooq.meta.h2.H2Database'
 				inputSchema = 'PUBLIC'
 				forcedTypes {
 					forcedType {
@@ -162,4 +163,4 @@ jooq {
 }
 
 // https://medium.com/@readsethu/jooq-flyway-spring-boot-and-gradle-44a8d3f289
-// generateLoanapprovalJooqSchemaSource.dependsOn jooqMigrate
+//generateLoanApprovalJooqSchemaSource.dependsOn jooqMigrate
