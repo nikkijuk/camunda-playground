@@ -1,0 +1,58 @@
+databaseChangeLog:
+  - preConditions:
+      - runningAs:
+          username: SA
+
+  - changeSet:
+      id: 1
+      author: nikkijuk
+      changes:
+        - createTable:
+            tableName: loanRequest
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: processId
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: monthlyIncome
+                  type: long
+              - column:
+                  name: previousDebt
+                  type: long
+              - column:
+                  name: requestedLoan
+                  type: long
+              - column:
+                  name: creditRating
+                  type: char(2)
+
+  - changeSet:
+      id: 2
+      author: nikkijuk
+      changes:
+        - addColumn:
+            tableName: loanRequest
+            columns:
+              - column:
+                  name: name
+                  type: varchar(50)
+
+  - changeSet:
+      id: 3
+      author: nikkijuk
+      changes:
+        - addLookupTable:
+            existingTableName: loanRequest
+            existingColumnName: creditRating
+            newTableName: creditRating
+            newColumnName: id
+            newColumnDataType: char(2)
