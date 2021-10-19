@@ -67,6 +67,6 @@ if you really want to follow how variables are used you should give them as get 
 - ex. localhost:8080/requestLoan?income=1000&loan=100 (debts defaults to zero)
 - ex. localhost:8080/requestLoan?income=1000&debts=123&loan=100
 
-impotant to look for:
+important to look for:
 - there should be 1 process definition deployed, and at the very start one process instance started (one human task waiting)
 - there should be one process instance, i.e. one human task waiting, for each get request to /requestLoan
