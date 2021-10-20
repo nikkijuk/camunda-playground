@@ -144,7 +144,7 @@ Compensation, described in detail in Enterprise Integration Patterns, can be use
 
 These technical use cases are making eventually consistent data processing using distributed transactions and microservices reality. https://blog.bernd-ruecker.com/saga-how-to-implement-complex-business-transactions-without-two-phase-commit-e00aa41a1b1b
 
-In case Model Driven Development (MDD) connects in your mind to something ugly, like "generate it from model, then customize" horror scenarios (My deepest sympathy: it's traumatic to fall to generation gap), just relax. Model really drives logic here, as BPMN is directly executed (interpreted runtime). 
+In case Model Driven Development (MDD) connects in your mind to something ugly, like "generate it from model, then customize" horror scenarios, just relax. Model really drives logic here, as BPMN is directly executed (interpreted runtime). So, once more, we don't have to worry about generation gap https://martinfowler.com/dslCatalog/generationGap.html
 
 ### BPMN as programming model
 
