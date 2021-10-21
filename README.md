@@ -83,6 +83,8 @@ Here's Camundas architecture as example
 
 !["architecture1"](pics/architecture-overview.png)
 
+https://docs.camunda.org/manual/latest/introduction/
+
 ## BPM enables continuous improvement
 
 It is seldom that systems do not change (actually: if they stay same they are dead), and thus it's valuable to build them easily adaptable.
